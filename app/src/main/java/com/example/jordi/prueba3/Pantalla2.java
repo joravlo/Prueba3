@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class Pantalla2 extends AppCompatActivity {
     private ArrayList<Persona> listapersonas;
+    AdaptadorPersonas adaptador;
     private ArrayList<Persona> array_sort = new ArrayList<Persona>();
     private EditText editText;
     int textlenght = 0;
@@ -46,10 +47,11 @@ public class Pantalla2 extends AppCompatActivity {
         listapersonas.add(new Persona("jose","Hombre",21192912));
 
         final EditText editText = (EditText)findViewById(R.id.editText);
-        AdaptadorPersonas adaptador = new AdaptadorPersonas(this, listapersonas);
+         adaptador = new AdaptadorPersonas(this, listapersonas);
         final ListView lv1 = (ListView)findViewById(R.id.listView);
+        lv1.setTextFilterEnabled(true);
         lv1.setAdapter(adaptador);
-
+        //comentario
 
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -70,7 +72,8 @@ public class Pantalla2 extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                textlenght = editText.getText().length();
+               Pantalla2.this.adaptador.getFilter().filter(s);
+                /* textlenght = editText.getText().length();
                 array_sort.clear();
 
                 for(int i=0;i<listapersonas.size();i++){
@@ -80,8 +83,8 @@ public class Pantalla2 extends AppCompatActivity {
                         }
                     }
                 }
-                //AdaptadorPersonas adaptador2 = new AdaptadorPersonas(this, array_sort);
-                //lv1.setAdapter();
+                AdaptadorPersonas adaptador2 = new AdaptadorPersonas(this, array_sort);
+                lv1.setAdapter(adaptador2);*/
             }
 
             @Override
