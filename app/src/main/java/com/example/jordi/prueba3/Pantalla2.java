@@ -82,12 +82,6 @@ public class Pantalla2 extends AppCompatActivity {
         if (id == R.id.opcion1) {
             dialogCrearContacto();
         }
-        if (id == R.id.opcion2) {
-            Toast.makeText(this, "Se seleccionó la segunda opción", Toast.LENGTH_LONG).show();
-        }
-        if (id == R.id.opcion3) {
-            Toast.makeText(this, "Se seleccionó la tercer opción", Toast.LENGTH_LONG).show();
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -98,16 +92,22 @@ public class Pantalla2 extends AppCompatActivity {
 
         final EditText editNombre = (EditText) v.findViewById(R.id.editNombre);
         final EditText editNumero = (EditText) v.findViewById(R.id.editNumero);
-        RadioButton radioButtonHombre = (RadioButton) v.findViewById(R.id.radioButtonHombre);
+        final RadioButton radioButtonHombre = (RadioButton) v.findViewById(R.id.radioButtonHombre);
         RadioButton radioButtonMujer = (RadioButton) v.findViewById(R.id.radioButtonMujer);
 
         builder.setView(v).setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (!editNombre.getText().toString().isEmpty() && !editNumero.getText().toString().isEmpty()) {
-
-                } else {
-
+                    if(radioButtonHombre.isChecked()==true){
+                        int numero = Integer.parseInt(editNumero.getText().toString());
+                        listapersonas.add(new Persona(editNombre.getText().toString(),"Hombre",numero));
+                    }else {
+                        int numero = Integer.parseInt(editNumero.getText().toString());
+                        listapersonas.add(new Persona(editNombre.getText().toString(),"Mujer",numero));
+                    }
+                }else {
+                    Toast.makeText(Pantalla2.this, "Faltan campos por rellenar", Toast.LENGTH_LONG).show();
                 }
             }
         }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
