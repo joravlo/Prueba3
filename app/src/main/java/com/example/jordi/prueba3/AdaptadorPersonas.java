@@ -1,6 +1,7 @@
 package com.example.jordi.prueba3;
 
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ public class AdaptadorPersonas extends ArrayAdapter<Persona> {
         appCompatActivity = context;
         this.listapersonas = listapersonas;
     }
+
+
 
     public View getView(int posicion, View convertview, ViewGroup parent) {
         LayoutInflater inflater = appCompatActivity.getLayoutInflater();
