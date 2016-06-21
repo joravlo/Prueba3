@@ -33,6 +33,10 @@ public class Pantalla2 extends AppCompatActivity {
     AdaptadorPersonas adaptador;
 
 
+    public ArrayList<Persona> getListapersonas() {
+        return listapersonas;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
