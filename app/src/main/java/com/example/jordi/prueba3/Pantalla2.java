@@ -10,6 +10,7 @@ import android.support.v7.widget.SearchView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -123,6 +124,7 @@ public class Pantalla2 extends AppCompatActivity {
 
 
         AlertDialog alert = builder.create();
+        alert.getWindow().getAttributes().windowAnimations= R.style.DialogAnimation;
         alert.show();
 
 
