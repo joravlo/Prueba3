@@ -117,6 +117,7 @@ public class Pantalla3 extends AppCompatActivity {
 
 
         AlertDialog alert = builder.create();
+        alert.getWindow().getAttributes().windowAnimations= R.style.DialogAnimation;
         alert.show();
 
 

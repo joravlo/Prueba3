@@ -70,6 +70,7 @@ public class Pantalla2 extends AppCompatActivity {
                 i.putExtra("GENERO", listapersonas.get(position).getGenero());
                 i.putExtra("NUMERO", listapersonas.get(position).getNumero());
                 startActivity(i);
+
             }
         });
 
